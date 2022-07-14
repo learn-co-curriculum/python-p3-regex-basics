@@ -42,22 +42,38 @@ Your window should look like this: ![regex101 setup](https://curriculum-content.
 
 ## Writing Regular Expressions
 
-In Python, regular expressions are generally written between forward slashes:
-`/your regex/`. This is the 'literal' alternative to creating a regular
-expression object using the following syntax: `Regexp.new('your regex')`. In
-Rubular, you can see that these slashes have already been written for you.
+In Python, regular expressions require you to use the `re` module from the
+standard library. Remember that when we say that a module comes from the
+_standard library_, it means that it was downloaded onto our computer when we
+installed Python. We still need to `import` it, but we do not need to include
+it in our Pipfile.
+
+All regular expressions in Python begin with an "r" before the pattern to be
+matched:
+
+```py
+pattern = r'abc'
+```
+
+This "r" stands for _raw_, which means that escape characters such as
+backslashes (`\`) are read and not ignored. This expands the number of
+characters that can go into a pattern and allows you to search for patterns
+more specifically.
 
 ### Simple Text Matching
 
-Let's start with the simplest text matching. Add the following RegEx in rubular:
+Let's start with the simplest text matching. Select `</> Python` in the
+"Flavor" column on the left and enter the following RegEx:
 
+```py
+twenty
 ```
-/twenty/
-```
 
-![twenty regex](https://curriculum-content.s3.amazonaws.com/web-development/Regex/twenty.png)
+![twenty regex](https://curriculum-content.s3.amazonaws.com/python/twenty-regex101.png)
 
-Notice that the pattern matches the two instances of "twenty" in the passage. Writing a series of letters or numbers in your regular expression will result in a search for exact matches of this pattern anywhere in the string.
+Notice that the pattern matches the two instances of "twenty" in the passage.
+Writing a series of letters or numbers in your regular expression will result
+in a search for exact matches of this pattern anywhere in the string.
 
 ### Metacharacters
 
