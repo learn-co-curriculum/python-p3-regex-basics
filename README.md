@@ -20,9 +20,9 @@ any common characters to pattern match. Also called a **filter**.
 
 In this lesson, we're going to learn the syntax and basic vocabulary of regular
 expressions. We'll start simple and build from there. A great place to head for
-RegEx testing and practice is _[regular expressions 101][regex101]_ - it allows
+RegEx testing and practice is _[regex101][regex101]_ - it allows
 you to build and test regular expressions against text that you define. In a
-separate window, open up _regular expressions 101_. In the text box labeled
+separate window, open up _regex101_. In the text box labeled
 "insert your test string here", paste in the following monologue from
 Shakespeare's _The Merchant of Venice_:
 
@@ -63,10 +63,11 @@ more specifically.
 ### Simple Text Matching
 
 Let's start with the simplest text matching. Select `</> Python` in the
-"Flavor" column on the left and enter the following RegEx:
+"Flavor" column on the left and enter the following RegEx (regex101 will
+provide the "r" and quotes for you):
 
 ```py
-twenty
+r'twenty'
 ```
 
 ![twenty regex](https://curriculum-content.s3.amazonaws.com/python/twenty-regex101.png)
@@ -77,18 +78,31 @@ in a search for exact matches of this pattern anywhere in the string.
 
 ### Metacharacters
 
-The real beauty of regular expressions is revealed in its use of metacharacters. Metacharacters allow you to use a pre-defined shorthand to match specific characters. For example, `\d` will match any digit in your text, and `\w` will match any word character (letters, numbers, and underscores). The 'RegEx Quick Reference' at the bottom of Rubular shows metacharacters and patterns that you can use. Play around with these a little. Use `\W` (notice uppercasing) to match the non-word characters in your text.
+The real beauty of regular expressions is revealed in their use of
+metacharacters. Metacharacters allow you to use a pre-defined shorthand to
+match specific characters. For example, `\d` will match any digit in your text,
+and `\w` will match any word character (letters, numbers, and underscores). The
+'RegEx Quick Reference' at the bottom-right corner of regex101 shows
+metacharacters and patterns that you can use. Play around with these a little.
+Use `\W` (notice uppercasing) to match the non-word characters in your text.
 
 ### Only specific characters
 
-If I want to match all instances of vowels in a string, the RegEx `/aeiou/` won't work (feel free to try it), as it will only match the entire string "aeiou" - which clearly isn't in our text. Instead let's use square brackets: `/[aeiou]/` - this is looking for only **one single** character in our text which matches any of the characters inside the square brackets. If you add this RegEx to our rubular, you'll see every vowel highlighted in your match result.
+If I want to match all instances of vowels in a string, the RegEx `r'aeiou'`
+won't work (feel free to try it), as it will only match the entire string
+"aeiou" - which clearly isn't in our text. Instead let's use square brackets:
+`r'[aeiou]'` - this is looking for only **one single** character in our text
+which matches any of the characters inside the square brackets. If you add
+this RegEx to our rubular, you'll see every vowel highlighted in your match
+result.
 
 ### Ranges
 
-Based on what we've just learned, we can write a regular expression looking for single characters in the first 10 letters of the alphabet like so:`/[abcdefghij]/`
-We can actually shorten this in Ruby using a RegEx range:`/[a-j]/`
+Based on what we've just learned, we can write a regular expression looking for
+single characters in the first 10 letters of the alphabet like so:`r'[abcdefghij]'`
+We can actually shorten this in Python using a RegEx range:`r'[a-j]'`
 
-`[0123456789]` becomes `[0-9]`
+`r'[0123456789]'` becomes `r'[0-9]'`
 
 ### Example: Double Vowels
 
@@ -115,6 +129,6 @@ will be able to do moving forward.
 
 ## Resources
 
-- [regular expressions 101][regex101]
+- [regex101][regex101]
 
 [regex101]: https://regex101.com/
