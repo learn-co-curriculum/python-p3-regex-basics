@@ -58,7 +58,7 @@ pattern = r'abc'
 This "r" stands for _raw_, which means that escape characters such as
 backslashes (`\`) are read and not ignored. This expands the number of
 characters that can go into a pattern and allows you to search for patterns
-more specifically.
+with greater flexibility.
 
 ### Simple Text Matching
 
@@ -86,6 +86,21 @@ and `\w` will match any word character (letters, numbers, and underscores). The
 metacharacters and patterns that you can use. Play around with these a little.
 Use `\W` (notice uppercasing) to match the non-word characters in your text.
 
+<details>
+  <summary>
+    <em>Which character in the constructor of a RegEx pattern allows the
+        interpreter to read backslashes?</em>
+  </summary>
+
+  <h3>"r" (for <em>raw</em>)</h3>
+  <p>Sometimes we need to match types of characters (digits
+     <code>\d</code>, whitespace <code>\s</code>) or characters that represent
+     types of characters (<code>.</code> matches any character). Reading
+     patterns as raw text allows the interpreter to match a wide array of
+     strings in as few characters as possible.</p>
+</details>
+<br/>
+
 ### Only specific characters
 
 If I want to match all instances of vowels in a string, the RegEx `r'aeiou'`
@@ -100,21 +115,42 @@ result.
 
 Based on what we've just learned, we can write a regular expression looking for
 single characters in the first 10 letters of the alphabet like so:`r'[abcdefghij]'`
-We can actually shorten this in Python using a RegEx range:`r'[a-j]'`
+We can actually shorten this in Python using a RegEx range:`r'[a-j]'`.
 
-`r'[0123456789]'` becomes `r'[0-9]'`
+`r'[0123456789]'` becomes `r'[0-9]'`.
+
+A useful range to remember is `r'[A-z]'`. This represents all letters, both
+capital and lowercase.
 
 ### Example: Double Vowels
 
-There are many other metacharacters and ways of building patterns in RegEx, many of which you can refer in the Rubular quick reference guide. However, the best way to actually learn to use regular expressions is to practice building your own patterns. Let's look for instances in our text of two consecutive vowels (for example, 'ae', 'ie', 'oo', etc). The longest way to do this is to hand code the different combinations of two vowels:`/aa|oo|ee|ii|uu|ae|ea|ou|ie|ei|eo|oe/`. It's pretty tedious to hand code each of these combinations (I didn't finish). An improvement is to use two sets of square brackets with vowels, each one representing a single character: `/[aeiou][aeiou]/`. Our most efficient, however, is to use repetitions: `/[aeiou]{2}/` The curly braces surrounding mean that the pattern or character directly preceding it must repeat that number of times. As such, we're looking for a repeat of a vowel two times. As you can see, there are many ways to write a regular expression that does the same thing.
+There are many other metacharacters and ways of building patterns in RegEx,
+many of which you can refer in the Rubular quick reference guide. However, the
+best way to actually learn to use regular expressions is to practice building
+your own patterns. Let's look for instances in our text of two consecutive
+vowels (for example, 'ae', 'ie', 'oo', etc). The longest way to do this is to
+hand code the different combinations of two vowels:
+`r'aa|ae|ai|ao|au|ea|ee|ei|eo|eu|ia|ie'`. It's pretty tedious to hand code each
+of these combinations (_I certainly didn't finish_). An improvement is to use
+two sets of square brackets with vowels, each one representing a single character:
+`r'[aeiou][aeiou]'`. Our most efficient, however, is to use repetitions:
+`r'[aeiou]{2}'` The curly braces surrounding mean that the pattern or character
+directly preceding it must repeat that number of times. As such, we're looking
+for a repeat of a vowel two times. As you can see, there are many ways to write
+a regular expression that does the same thing.
 
 <details>
   <summary>
-    <em>Check for understanding text goes here! <code>Code statements go here.</code></em>
+    <em>How would you write a RegEx to search for two digit numbers with
+        neither number greater than 5?</em>
   </summary>
 
-  <h3>Answer.</h3>
-  <p>Elaboration on answer.</p>
+  <h3><code>r'[0-5]{2}'</code></h3>
+  <p>Remember that we use square brackets to denote ranges and curly braces to
+     denote repetitions.</p>
+  <p><em>Fun Fact: All jersey numbers in college basketball must follow this
+     pattern. This stems from the olden days when referees needed to reference
+     players by jersey number with nothing but their hands!</em></p>
 </details>
 <br/>
 
@@ -122,13 +158,22 @@ There are many other metacharacters and ways of building patterns in RegEx, many
 
 ## Conclusion
 
-Conclusion summary paragraph. Include common misconceptions and what students
-will be able to do moving forward.
+In this lesson, we have explored the basics of constructing RegEx patterns in
+Python. In subsequent lessons, we will put these rules into action as we
+explore the methods of the `re` module in Python's standard library.
+
+For more practice, return to the earlier monologue from _The Merchant of
+Venice_: with a bit of dedication, you should be able to match the whole
+excerpt!
+
+> NOTE: You could certainly match the whole monologue with the simple RegEx
+> `r'.*'`. But where's the fun in that?
 
 ***
 
 ## Resources
 
+- [re - Regular expression operations - Python](https://docs.python.org/3/library/re.html)
 - [regex101][regex101]
 
 [regex101]: https://regex101.com/
