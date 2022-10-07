@@ -108,7 +108,7 @@ won't work (feel free to try it), as it will only match the entire string
 "aeiou" - which clearly isn't in our text. Instead let's use square brackets:
 `r'[aeiou]'` - this is looking for only **one single** character in our text
 which matches any of the characters inside the square brackets. If you add
-this RegEx to our rubular, you'll see every vowel highlighted in your match
+this RegEx to our regex101, you'll see every vowel highlighted in your match
 result.
 
 ### Ranges
@@ -125,7 +125,7 @@ capital and lowercase.
 ### Example: Double Vowels
 
 There are many other metacharacters and ways of building patterns in RegEx,
-many of which you can refer in the Rubular quick reference guide. However, the
+many of which you can refer in the regex101 quick reference guide. However, the
 best way to actually learn to use regular expressions is to practice building
 your own patterns. Let's look for instances in our text of two consecutive
 vowels (for example, 'ae', 'ie', 'oo', etc). The longest way to do this is to
